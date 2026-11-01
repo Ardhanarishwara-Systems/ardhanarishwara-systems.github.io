@@ -8,11 +8,11 @@
 
 <title>Ardhanarishwara Systems | Engineering the Unseen</title>
 
-<meta name="description" content="Ardhanarishwara Systems is an independent multidisciplinary engineering initiative exploring electronics, embedded systems, artificial intelligence and intelligent computing.">
+<meta name="description" content="Ardhanarishwara Systems is an independent multidisciplinary engineering initiative exploring electronics, embedded systems, artificial intelligence, software and intelligent computing.">
 
 <meta property="og:title" content="Ardhanarishwara Systems">
 <meta property="og:description" content="Engineering the Unseen. Architecting the Future.">
-<meta property="og:image" content="logo.png">
+<meta property="og:image" content="https://ardhanarishwara-systems.github.io/logo.png">
 <meta property="og:type" content="website">
 
 <link rel="icon" type="image/png" href="logo.png">
@@ -21,6 +21,7 @@
 :root {
   --bg: #08090b;
   --surface: #101318;
+  --surface2: #141920;
   --gold: #c9a66b;
   --silver: #dedede;
   --text: #f4f2ed;
@@ -34,7 +35,10 @@
   box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
 
 body {
   background: var(--bg);
@@ -57,16 +61,20 @@ a {
 /* NAVIGATION */
 
 header {
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,9,11,.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
 }
 
 nav {
-  min-height: 85px;
+  min-height: 82px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--border);
+  gap: 20px;
 }
 
 .brand {
@@ -76,6 +84,7 @@ nav {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
+  flex-shrink: 0;
 }
 
 .brand img {
@@ -84,11 +93,13 @@ nav {
   object-fit: contain;
 }
 
-.brand span { color: var(--gold); }
+.brand span {
+  color: var(--gold);
+}
 
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 24px;
   font-size: 12px;
   color: var(--muted);
 }
@@ -124,9 +135,10 @@ nav {
   right: -5px;
   top: 50%;
   transform: translateY(-50%);
-  opacity: .86;
-  filter: drop-shadow(0 0 45px rgba(201,166,107,.15));
+  opacity: .85;
+  filter: drop-shadow(0 0 45px rgba(201,166,107,.17));
   animation: reveal 1.5s ease both;
+  pointer-events: none;
 }
 
 .hero-art img {
@@ -136,8 +148,14 @@ nav {
 }
 
 @keyframes reveal {
-  from { opacity: 0; transform: translateY(-46%) scale(.92); }
-  to { opacity: .86; transform: translateY(-50%) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(-46%) scale(.92);
+  }
+  to {
+    opacity: .85;
+    transform: translateY(-50%) scale(1);
+  }
 }
 
 .eyebrow {
@@ -155,7 +173,9 @@ h1 {
   font-weight: 600;
 }
 
-h1 span { color: var(--gold); }
+h1 span {
+  color: var(--gold);
+}
 
 .hero p {
   max-width: 540px;
@@ -193,7 +213,9 @@ h1 span { color: var(--gold); }
 
 /* GENERAL SECTIONS */
 
-section { padding: 105px 0; }
+section {
+  padding: 105px 0;
+}
 
 .section-label {
   color: var(--gold);
@@ -222,7 +244,7 @@ h2 {
   border-bottom: 1px solid var(--border);
 }
 
-/* DOMAINS */
+/* ENGINEERING DOMAINS */
 
 .domains {
   display: grid;
@@ -241,6 +263,7 @@ h2 {
 .domain:hover {
   transform: translateY(-5px);
   border-color: var(--gold);
+  background: var(--surface2);
 }
 
 .number {
@@ -249,13 +272,15 @@ h2 {
   color: var(--gold);
 }
 
-.domain h3, .project h3 {
+.domain h3,
+.project h3 {
   font-size: 19px;
   font-weight: 500;
   margin: 18px 0 10px;
 }
 
-.domain p, .project p {
+.domain p,
+.project p {
   font-size: 13px;
   color: var(--muted);
 }
@@ -295,6 +320,55 @@ h2 {
   letter-spacing: 1px;
 }
 
+.project a:hover {
+  color: var(--silver);
+}
+
+/* RESEARCH */
+
+.research-intro {
+  max-width: 780px;
+  color: var(--muted);
+  margin-top: 24px;
+  font-size: 15px;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin-top: 45px;
+}
+
+.research-card {
+  padding: 30px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: .3s;
+}
+
+.research-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+}
+
+.research-card .number {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.research-card h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 18px 0 10px;
+}
+
+.research-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
 /* PHILOSOPHY */
 
 .principles {
@@ -318,12 +392,32 @@ h2 {
 
 /* CONTACT */
 
-.contact { text-align: center; }
+.contact {
+  text-align: center;
+}
 
 .contact p {
   color: var(--muted);
   max-width: 570px;
   margin: 20px auto 30px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.contact-links a {
+  color: var(--gold);
+  font-size: 12px;
+  transition: .25s;
+}
+
+.contact-links a:hover {
+  color: var(--silver);
 }
 
 /* FOOTER */
@@ -343,105 +437,165 @@ footer {
   flex-wrap: wrap;
 }
 
-/* MOBILE */
+/* ACCESSIBILITY */
 
-@media(max-width: 850px) {
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* TABLET */
+
+@media(max-width: 900px) {
   .hero-art {
     width: 340px;
     right: -100px;
-    opacity: .25;
+    opacity: .28;
   }
 
-  .hero-content { max-width: 650px; }
-
-  .domains { grid-template-columns: repeat(2, 1fr); }
+  .domains,
+  .research-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
+/* MOBILE */
 
 @media(max-width: 600px) {
   nav {
     flex-wrap: wrap;
-    padding: 16px 0;
-    gap: 15px;
+    padding: 14px 0;
+    gap: 14px;
+  }
+
+  .brand {
+    font-size: 11px;
+  }
+
+  .brand img {
+    width: 37px;
+    height: 37px;
   }
 
   .nav-links {
     width: 100%;
     justify-content: space-between;
-    gap: 8px;
+    gap: 7px;
+    font-size: 10px;
   }
 
-  .hero { min-height: 620px; }
+  .hero {
+    min-height: 620px;
+  }
 
   .hero-art {
-    width: 300px;
+    width: 290px;
     right: -120px;
     top: 55%;
-    opacity: .18;
+    opacity: .19;
   }
 
-  h1 { letter-spacing: -2px; }
+  h1 {
+    letter-spacing: -2px;
+  }
 
   .domains,
+  .research-grid,
   .projects,
   .principles {
     grid-template-columns: 1fr;
   }
 
-  section { padding: 75px 0; }
+  section {
+    padding: 75px 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header class="container">
-<nav>
-  <a href="#" class="brand">
-    <img src="logo.png" alt="Ardhanarishwara Systems emblem">
-    <div>ARDHANARISHWARA <span>SYSTEMS</span></div>
-  </a>
+<!-- NAVIGATION -->
 
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#domains">Domains</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
+<header>
+<div class="container">
+<nav>
+
+<a href="#" class="brand">
+  <img src="logo.png" alt="Ardhanarishwara Systems emblem">
+  <div>ARDHANARISHWARA <span>SYSTEMS</span></div>
+</a>
+
+<div class="nav-links">
+  <a href="#about">About</a>
+  <a href="#domains">Domains</a>
+  <a href="#projects">Projects</a>
+  <a href="#research">Research</a>
+  <a href="#contact">Contact</a>
+</div>
+
 </nav>
+</div>
 </header>
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero container">
-  <div class="hero-art">
-    <img src="logo.png" alt="Ardhanarishwara Systems emblem">
+
+<div class="hero-art">
+  <img src="logo.png" alt="Ardhanarishwara Systems emblem">
+</div>
+
+<div class="hero-content">
+
+  <div class="eyebrow">
+    Independent Engineering Initiative · Est. 2026
   </div>
 
-  <div class="hero-content">
-    <div class="eyebrow">Independent Engineering Initiative · Est. 2026</div>
+  <h1>
+    Engineering the<br>
+    <span>Unseen.</span><br>
+    Architecting the Future.
+  </h1>
 
-    <h1>
-      Engineering the<br>
-      <span>Unseen.</span><br>
-      Architecting the Future.
-    </h1>
+  <p>
+    Exploring the convergence of electronics, intelligent computing,
+    artificial intelligence and software engineering.
+    Different disciplines. One integrated engineering vision.
+  </p>
 
-    <p>
-      Exploring the convergence of electronics, intelligent computing,
-      artificial intelligence and software engineering.
-      Different disciplines. One integrated engineering vision.
-    </p>
-
-    <div class="actions">
-      <a href="#domains" class="btn primary">EXPLORE OUR DOMAINS</a>
-      <a href="#projects" class="btn">DISCOVER OUR WORK</a>
-    </div>
+  <div class="actions">
+    <a href="#domains" class="btn primary">EXPLORE OUR DOMAINS</a>
+    <a href="#projects" class="btn">DISCOVER OUR WORK</a>
   </div>
+
+</div>
 </section>
 
+<!-- ABOUT -->
+
 <section id="about" class="container">
+
   <div class="section-label">01 / WHO WE ARE</div>
-  <h2>Beyond boundaries.<br>Across engineering disciplines.</h2>
+
+  <h2>
+    Beyond boundaries.<br>
+    Across engineering disciplines.
+  </h2>
 
   <p class="intro">
     Ardhanarishwara Systems is an independent multidisciplinary
@@ -455,12 +609,20 @@ footer {
     Our direction is guided by research, experimentation,
     architectural thinking and practical implementation.
   </p>
+
 </section>
+
+<!-- DOMAINS -->
 
 <section id="domains" class="dark-section">
 <div class="container">
+
   <div class="section-label">02 / AREAS OF EXPLORATION</div>
-  <h2>Multiple disciplines.<br>Connected by design.</h2>
+
+  <h2>
+    Multiple disciplines.<br>
+    Connected by design.
+  </h2>
 
   <div class="domains">
 
@@ -504,41 +666,132 @@ footer {
 </div>
 </section>
 
+<!-- PROJECTS -->
+
 <section id="projects" class="container">
+
   <div class="section-label">03 / SELECTED WORK</div>
-  <h2>Ideas translated<br>into engineered systems.</h2>
+
+  <h2>
+    Ideas translated<br>
+    into engineered systems.
+  </h2>
 
   <div class="projects">
 
     <article class="project">
-      <div class="project-tag">ARTIFICIAL INTELLIGENCE · SOFTWARE</div>
+
+      <div class="project-tag">
+        ARTIFICIAL INTELLIGENCE · SOFTWARE
+      </div>
+
       <h3>ZEQUI AI</h3>
+
       <p>
         An AI-driven application exploring multi-model orchestration,
         intelligent assistance and resilient software architecture.
       </p>
+
       <a href="https://github.com/Ardhanarishwara-Systems"
-         target="_blank" rel="noopener noreferrer">EXPLORE PROJECT ↗</a>
+         target="_blank" rel="noopener noreferrer">
+        EXPLORE PROJECT ↗
+      </a>
+
     </article>
 
     <article class="project">
-      <div class="project-tag">ELECTRONICS · EMBEDDED SYSTEMS</div>
+
+      <div class="project-tag">
+        ELECTRONICS · EMBEDDED SYSTEMS
+      </div>
+
       <h3>ESP32 SignalGuard</h3>
+
       <p>
         An ESP32-based ultrasonic sensing project focused on signal
         validation, timing uncertainty and measurement reliability.
       </p>
+
       <a href="https://github.com/nachiketnarkhede/ESP32-SignalGuard"
-         target="_blank" rel="noopener noreferrer">EXPLORE PROJECT ↗</a>
+         target="_blank" rel="noopener noreferrer">
+        EXPLORE PROJECT ↗
+      </a>
+
     </article>
 
   </div>
 </section>
 
-<section class="dark-section">
+<!-- RESEARCH & DEVELOPMENT -->
+
+<section id="research" class="dark-section">
 <div class="container">
-  <div class="section-label">04 / OUR PHILOSOPHY</div>
-  <h2>Three principles.<br>One engineering direction.</h2>
+
+  <div class="section-label">04 / RESEARCH & DEVELOPMENT</div>
+
+  <h2>
+    Investigating systems.<br>
+    Exploring what comes next.
+  </h2>
+
+  <p class="research-intro">
+    Our research direction focuses on understanding complex
+    engineering problems, exploring emerging technologies and
+    investigating how different layers of technology interact.
+  </p>
+
+  <div class="research-grid">
+
+    <article class="research-card">
+      <div class="number">R&D / 01</div>
+      <h3>Intelligent Systems Architecture</h3>
+      <p>Exploring AI orchestration, distributed intelligence and resilient computational architectures.</p>
+    </article>
+
+    <article class="research-card">
+      <div class="number">R&D / 02</div>
+      <h3>Embedded Intelligence</h3>
+      <p>Investigating microcontrollers, sensor interfaces and intelligent embedded applications.</p>
+    </article>
+
+    <article class="research-card">
+      <div class="number">R&D / 03</div>
+      <h3>Signal & Measurement Systems</h3>
+      <p>Exploring signal integrity, timing uncertainty and reliable electronic measurement.</p>
+    </article>
+
+    <article class="research-card">
+      <div class="number">R&D / 04</div>
+      <h3>Computing Architecture</h3>
+      <p>Investigating computational efficiency, memory-aware design and system-level behaviour.</p>
+    </article>
+
+    <article class="research-card">
+      <div class="number">R&D / 05</div>
+      <h3>Hardware–Software Convergence</h3>
+      <p>Exploring the interaction between physical devices, firmware and intelligent software.</p>
+    </article>
+
+    <article class="research-card">
+      <div class="number">R&D / 06</div>
+      <h3>Emerging Technologies</h3>
+      <p>Studying new engineering approaches across electronics, computing and intelligent systems.</p>
+    </article>
+
+  </div>
+</div>
+</section>
+
+<!-- PHILOSOPHY -->
+
+<section class="container">
+
+  <div class="section-label">05 / OUR PHILOSOPHY</div>
+
+  <h2>
+    Three principles.<br>
+    One engineering direction.
+  </h2>
 
   <div class="principles">
 
@@ -558,11 +811,14 @@ footer {
     </div>
 
   </div>
-</div>
 </section>
 
+<!-- CONTACT -->
+
 <section id="contact" class="container contact">
-  <div class="section-label">05 / CONNECT</div>
+
+  <div class="section-label">06 / CONNECT</div>
+
   <h2>Let's explore what comes next.</h2>
 
   <p>
@@ -570,19 +826,30 @@ footer {
     and connect with Ardhanarishwara Systems.
   </p>
 
-  <a class="btn primary"
-     href="https://github.com/Ardhanarishwara-Systems"
-     target="_blank" rel="noopener noreferrer">
-     EXPLORE OUR GITHUB
-  </a>
+  <div class="contact-links">
+
+    <a href="https://github.com/Ardhanarishwara-Systems"
+       target="_blank" rel="noopener noreferrer">
+       GITHUB ↗
+    </a>
+
+  </div>
+
 </section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
 <div class="container footer-content">
+
   <span>© 2026 ARDHANARISHWARA SYSTEMS</span>
-  <span>ENGINEERING THE UNSEEN. ARCHITECTING THE FUTURE.</span>
+
+  <span>
+    ENGINEERING THE UNSEEN. ARCHITECTING THE FUTURE.
+  </span>
+
 </div>
 </footer>
 
